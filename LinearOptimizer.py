@@ -36,7 +36,7 @@ def LinearFit(x, y, u):
     result = differential_evolution(objective, bounds)
     print(result)
     s = result['x']
-    red_chi_sq = objective(s)/5
+    red_chi_sq = objective(s)/(len(x)-len(s))
     a, b = np.split(s, 2)
     return a, b, red_chi_sq
 
